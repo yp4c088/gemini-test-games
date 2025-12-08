@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 年度資訊部(AP)工作目標</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        /* 第一層：系統分類 (加入互動樣式) */
+        .level-1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            padding: 12px 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            
+            /* 新增互動屬性 */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none; /* 防止點擊時選取文字 */
+            transition: background 0.2s;
+        }
+
+        .level-1:hover {
+            filter: brightness(1.1); /* hover 時稍微變亮 */
+        }
+
+        /* 箭頭圖示 */
+        .level-1::after {
+            content: "▼";
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        /* 當收合時，箭頭旋轉 */
+        .level-1.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        /* 項目容器 */
+        .item-container {
+            border-left: 4px solid #e0e0e0;
+            margin-left: 10px;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+        .item-container:hover {
+            border-left-color: #3498db;
+            background-color: #fafafa;
+        }
+
+        /* 第二層：目標名稱 */
+        .level-2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .level-2::before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid #3498db; 
+            margin-right: 10px;
+        }
+
+        /* 詳細說明文字 */
+        .task-desc {
+            font-size: 0.95rem;
+            color: #555;
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 8px 0 12px 0;
+            border: 1px solid #eee;
+        }
+
+        /* 第三層：負責人 */
+        .level-3 {
+            font-size: 0.9rem;
+            color: #fff;
+            background-color: #7f8c8d; 
+            padding: 5px 15px 5px 32px; 
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+            position: relative; 
+        }
+
+        .level-3::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>2026 年度資訊部(AP)工作目標</h1>
+    <div style="text-align: right; margin-bottom: 10px;">
+        <button onclick="toggleAll(true)" style="padding: 5px 10px; cursor: pointer;">全部展開</button>
+        <button onclick="toggleAll(false)" style="padding: 5px 10px; cursor: pointer;">全部收合</button>
+    </div>
+
+    <ul>
+        <li>
+            <div class="level-1">1 系統翻新</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">1.1 重構跨年官方網站 (含後台)</div>
+                    <div class="task-desc">
+                        依據 SDD 進行重構，改善 10 年舊架構。導入 AI 協助前後端架構優化，提升維護性與開發效率。
+                    </div>
+                    <div class="level-3">弘立、晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">1.2 D2K薪資系統重構Web (含後台)</div>
+                    <div class="task-desc">
+                        目前新泉/鼎固/新和/僑嶺薪資系統後台為D2K開發，<br>前台報表、電子薪資單為Java/Jsp 介面，<br>預計統一翻新為 asp.net 介面，資料庫則為Postgresql DB.
+                    </div>
+                    <div class="level-3">弘立、晨定</div>
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">2 系統維運及優化</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">2.1 主機升級 2025 Server</div>
+                    <div class="task-desc">
+                        針對 192.168.10.2 (新泉/鼎固/薪資)、172.25.202.101 (資網管) 及 EIP 測試機進行升級。
+                    </div>
+                    <div class="level-3">建宏、晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">2.2 Datadog 間歇啟用</div>
+                    <div class="task-desc">
+                        執行報價、導入、追蹤、暫停、重啟之循環管理 (Loop)。
+                    </div>
+                    <div class="level-3">奕均、建宏</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">3 資訊風險管理</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">3.1 舊資料管理</div>
+                    <div class="task-desc">
+                        舊檔案 (FTP/Table) 自動清理並移出主機。
+                    </div>
+                    <div class="level-3">晨定、軒豪</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">3.2 機敏資料隔離</div>
+                    <div class="task-desc">
+                        Server 端網站改用環境變數抓取 ConnectString 或 API Key，避免明碼外漏。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">3.3 TLS 憑證展延自動化</div>
+                    <div class="task-desc">
+                        因應憑證效期逐年遞減 (2026年剩200天)，建立自動展延機制。
+                    </div>
+                    <div class="level-3">晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">3.4 敏感欄位加密</div>
+                    <div class="task-desc">
+                        針對密碼及 Log 記錄中的敏感欄位進行加密處理。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">4 EIP 功能優化</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">4.1 首頁增加動態功能</div>
+                    <div class="task-desc">
+                        列出最近上傳的檔案與公告，避免漏讀未發 Mail 的更新資訊。
+                    </div>
+                    <div class="level-3">晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.2 通訊資料更新提醒</div>
+                    <div class="task-desc">
+                        每隔 12 個月或職務異動時，系統自動詢問是否修改分機資料。
+                    </div>
+                    <div class="level-3">晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.3 LINE Rich Menu 管理頁</div>
+                    <div class="task-desc">
+                        區分主管版/User版 Menu，並提供後台介面進行版次管理。
+                    </div>
+                    <div class="level-3">軒豪</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.4 差勤表單調整後台</div>
+                    <div class="task-desc">
+                        開放請假、加班單之刪除與修改功能 (含 Log 記錄)，減少行政與資訊來回溝通時間。
+                    </div>
+                    <div class="level-3">軒豪</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.5 SQL 語法全面去除 Schema</div>
+                    <div class="task-desc">
+                        建立 Public Synonyms，移除 SQL 中如 EUEIP.ORG... 的前綴，確保測試/正式環境切換彈性。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.6 請假:零散補休搭配私休使用</div>
+                    <div class="task-desc">
+                        評估補休+私休組合假可行性，處理簽核流程與時數組合問題。
+                    </div>
+                    <div class="level-3">弘立、軒豪</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">4.7 EIP 速度過慢程式調效</div>
+                    <div class="task-desc">
+                        歷史查詢資料分流；針對 Datadog 偵測出的慢速程式 (如 abshistory.aspx, orderlist.aspx) 進行優化。
+                    </div>
+                    <div class="level-3">晨定、軒豪</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">5 AI 應用擴展</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">5.1 AI 自動產出系統文件</div>
+                    <div class="task-desc">
+                        研究透過 GitHub Copilot CLI 或 Workspace 自動建置系統 Markdown 文件。
+                    </div>
+                    <div class="level-3">奕均</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">5.2 EIP 智慧上傳</div>
+                    <div class="task-desc">
+                        透過 AI 及 OCR 技術，上傳檔案時自動辨識並填入對應欄位。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">5.3 AI 判讀程式異動說明</div>
+                    <div class="task-desc">
+                        GitHub 週報匯整；EIP 新增功能自動 Insert 至版本記錄，待工程師確認後開放。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">5.4 助理機器人架構翻新</div>
+                    <div class="task-desc">
+                        採用 MCP (Model Context Protocol) 協議直連本地資源，取代傳統 Lambda API 複雜驗證流程。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">5.5 外部通訊錄 AI 解析</div>
+                    <div class="task-desc">
+                        每日偵測更新並透過 AI 清洗結構化資料；支援查詢檔名、姓名、電話並引導下載。
+                    </div>
+                    <div class="level-3">建宏、晨定</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">5.6 實驗 AI 偵測程式修復</div>
+                    <div class="task-desc">
+                        建立 SonarQube SOP，架設 MCP Server 供 GitHub Copilot 直接抓取 Issue 進行修復。
+                    </div>
+                    <div class="level-3">建宏</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">6 自動化整合交付 (CI/CD)</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">6.1 自動編譯自動佈署</div>
+                    <div class="task-desc">
+                        實作 Windows Server 部署方案 (GitLab Runner 本機建置 或 SSH 遠端部署)。
+                    </div>
+                    <div class="level-3">軒豪</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">6.2 程式碼風格檢查</div>
+                    <div class="task-desc">
+                        導入 .editorconfig 與 CI 檢查 (全專案/變更區)，可自動修正或僅推播 Slack 通知。
+                    </div>
+                    <div class="level-3">軒豪</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">7 技術研習類</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">7.1 混合型資料庫 SeekDB 測試</div>
+                    <div class="task-desc">
+                        整合 GIS Query 進行概念測試 (如：查詢方圓 2 公里內的簽約廠商)。
+                    </div>
+                    <div class="level-3">奕均</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">7.2 ETL 工具測試 (Apache Hop)</div>
+                    <div class="task-desc">
+                        整合 Apache Hop 進行 ETL 工具測試及應用 (與 #16 整合進行)。
+                    </div>
+                    <div class="level-3">奕均</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">7.3 MongoDB NoSQL 研習</div>
+                    <div class="task-desc">
+                        NoSQL 資料庫相關技術研習。
+                    </div>
+                    <div class="level-3">弘立</div>
+                </li>
+                <li class="item-container">
+                    <div class="level-2">7.4 性能驗證工具測試</div>
+                    <div class="task-desc">
+                        使用 JMeter 進行基準、負載、壓力及穩定性測試，監測 TPS, Response Time 等指標。
+                    </div>
+                    <div class="level-3">奕均</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="level-1">8 支援類</div>
+            <ul>
+                <li class="item-container">
+                    <div class="level-2">8.1 義享樂業務支援</div>
+                    <div class="task-desc">
+                        配合業務需求提供相關支援。
+                    </div>
+                    <div class="level-3">弘立</div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 取得所有 level-1 元素
+        const headers = document.querySelectorAll(".level-1");
+        
+        headers.forEach(header => {
+            header.addEventListener("click", function() {
+                // 1. 切換箭頭狀態
+                this.classList.toggle("collapsed");
+                
+                // 2. 找到下一個兄弟元素 (也就是 ul)
+                const content = this.nextElementSibling;
+                if (content && content.tagName === "UL") {
+                    // 切換顯示/隱藏
+                    if (content.style.display === "none") {
+                        content.style.display = "block";
+                    } else {
+                        content.style.display = "none";
+                    }
+                }
+            });
+        });
+
+        // 預設可能想要全部展開或收合，這邊預設全部展開
+        // 若要預設收合，請解開下面這行的註解
+        // toggleAll(false);
+    });
+
+    // 全部展開/收合的控制功能
+    function toggleAll(expand) {
+        const headers = document.querySelectorAll(".level-1");
+        headers.forEach(header => {
+            const content = header.nextElementSibling;
+            if (content && content.tagName === "UL") {
+                if (expand) {
+                    content.style.display = "block";
+                    header.classList.remove("collapsed");
+                } else {
+                    content.style.display = "none";
+                    header.classList.add("collapsed");
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
